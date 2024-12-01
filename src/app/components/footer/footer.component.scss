@@ -1,0 +1,79 @@
+
+@use '../../UtilitySass/all';
+
+
+.hide{ display:  none; }
+
+.background{ @extend .background_gradient; }
+
+h3, a, mat-icon{ color: all.$color_text; }
+a:hover{  opacity: 50%; }
+
+
+footer{
+    width: 80%;
+    max-width: 250px;
+    padding: 30px 0px;
+    margin: 0px auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;  
+
+    .navMenu{
+
+        // all <ul> 1° liv. 
+        & > ul {  
+            margin-top: 10px; 
+
+            // 1° <ul> 
+            &:first-of-type{ margin-top: 0px; } 
+            
+            // 1° <li> ( <h3> + <mat-icon> )
+            & > li:nth-of-type(1){ display: flex; justify-content: space-between; cursor: pointer;}
+
+            // 2° <li> --> <ul> 2° liv. 
+            & > li:nth-of-type(2) ul{  margin-top: 10px; line-height: 220%; }
+        }
+    }
+
+    .containerIcons{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        ul{ display: flex;  gap: 15px; margin-top: 10px; }
+
+        // <a> e <mat-icon> --> != height
+        a {display: inline-block;}
+    }
+
+}
+
+@media all and ( min-width: 950px ){
+
+    footer{
+        max-width: 1700px;
+
+        .navMenu{
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+
+            // all <ul> 1° liv. 
+            & > ul  { margin: 0px; }  
+           
+            // 1° <li> ( <h3> + <mat-icon> )
+            & > ul > li:nth-of-type(1){ cursor: default; }
+    
+           // nasconde pulsante arrow
+            mat-icon{ display: none; } 
+        }
+    
+        .containerIcons{ flex-direction: row; gap: 40px; }
+        .hide{ display: block; } // mostra sempre sub-menu
+        
+    }
+
+}
+

@@ -1,0 +1,31 @@
+
+<h3> Il mio carrello </h3>
+
+<!-- Mostra se cart vuoto -->
+<p *ngIf="prodottiCart.length == 0"> Nessun prodotto nel carrello </p>
+
+<!-- Genera n. <div> quanti i prod. nel carrello -->
+<div class="singoloProdotto" *ngFor="let prod of prodottiCart"> 
+
+    <picture>
+        <source [srcset]='"/assets/images/prod/" + prod.id + "/50x75.webp"' media="(max-width: 999px)" type="image/webp">
+        <source [srcset]='"/assets/images/prod/" + prod.id + "/50x75.png"'  media="(min-width: 999px)" type="image/png">
+
+        <source [srcset]='"/assets/images/prod/" + prod.id + "/80x120.webp"' media="(min-width: 1000px)" type="image/webp">
+        <source [srcset]='"/assets/images/prod/" + prod.id + "/80x120.png"'  media="(min-width: 1000px)" type="image/png">
+
+        <img [src]='"/assets/images/prod/" + prod.id + "/80x120.webp"' [alt]='prod.nome + "cover"'/>
+    </picture>
+
+    <div class="info">
+        <h3> {{prod.nome}} </h3> 
+        <span> {{prod.versioni}} </span> <span> {{prod.piattaforme}} </span>
+    </div>
+    
+    <p> {{prod.prezzo | currency : "EUR"}} </p>
+
+    <button type="button" (click)="remove(prod.id)" *ngIf="pathCart">
+        <mat-icon aria-hidden="false" aria-label="icona elimina" fontIcon="delete"></mat-icon>  
+    </button>
+  
+</div>

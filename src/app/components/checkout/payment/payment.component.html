@@ -1,0 +1,87 @@
+
+
+<div class="container" *ngIf="!orderComplete">
+
+  <h2> Pagamento  </h2>
+
+  <mat-accordion>
+      
+    <mat-expansion-panel  [hideToggle]="onDesktop" [disabled]="onDesktop" [expanded]="onDesktop">
+      
+      <!-- rimosso se su desktop -->
+      <mat-expansion-panel-header *ngIf="!onDesktop">
+        <mat-panel-title> Riepilogo </mat-panel-title>          
+      </mat-expansion-panel-header>
+
+      <!-- Riepilogo costi e prodotti carrello  -->
+      <app-recap-cart></app-recap-cart>
+      <app-recap-prod> </app-recap-prod>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+
+  
+
+  <mat-stepper [orientation]="orient" [linear]="true" #stepper>
+
+    <!-- Genera n. step quanti elementi in stepForm  -->
+    <mat-step [stepControl]="step.formGroup" *ngFor="let step of stepForm; let i = index; ">
+
+      <form [formGroup]="step.formGroup">
+
+        <ng-template matStepLabel> {{step.labelStep}} </ng-template>
+
+        <!-- Genera n. input quanti i fields del singolo step  -->
+        <mat-form-field *ngFor=" let field of step.fields"> 
+
+          <mat-label>{{field.label}}</mat-label>
+          <input matInput [formControlName]="field.name" [type]="field.type"> 
+
+        </mat-form-field>
+
+        <div class="btn"> 
+          <!-- btn indietro solo se step successivo a 1°  -->
+          <button mat-button matStepperPrevious *ngIf="i> 0">Indietro</button> 
+          <button mat-button matStepperNext> Avanti </button>
+        </div>
+
+      </form>
+
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel> Recap  </ng-template>
+
+      <!-- Genera n <div> quanti gli step ed n <p> quanti i field  -->
+      <div class="recap">
+        <div *ngFor="let step of stepForm" >
+          <h3> {{ step.labelStep }} </h3>
+          <p *ngFor="let f of step.fields"> {{step.formGroup.get(f.name)?.value}} </p>
+        </div>
+      </div>
+
+      <div class="btn">
+        <button mat-button matStepperPrevious>Indietro</button>
+        <button mat-button (click)="completato()"> Paga </button>
+      </div>
+
+    </mat-step>
+
+  </mat-stepper>
+
+
+</div>
+
+<!-- Messaggio completamento ordine  -->
+<div class="ordineCompleto" *ngIf="orderComplete">
+
+  <picture>
+    <source srcset="/assets/images/check.webp"  type="image/webp">
+    <source srcset="/assets/images/check.png"   type="image/png">
+    <img src="/assets/images/check.webp" alt= "icona ordine completato" />
+  </picture>
+
+  <h2> Ordine completato </h2>
+  <p> A breve riceverai un email di conferma </p>
+</div>

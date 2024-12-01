@@ -1,0 +1,65 @@
+
+
+
+
+<section>
+
+	<div>
+		<h2> Titoli di tendenza </h2>
+		<a routerLink="/products"> Vedi tutti i prodotti </a>
+		
+		<!-- Prodotti mobile ( slider )-->
+		<ngb-carousel [showNavigationIndicators]="false" *ngIf="showMobile">
+
+			<ng-template ngbSlide *ngFor="let prod of products;"> 
+		
+					<div class="prodotto"> 
+						<picture>
+							<source [srcset]=' "/assets/images/prod/" + prod.id + "/250x250.webp"' media="(max-width: 415px)" type="image/webp">
+							<source [srcset]=' "/assets/images/prod/" + prod.id + "/250x250.png"'  media="(max-width: 415px)" type="image/png">
+
+							<source [srcset]=' "/assets/images/prod/" + prod.id + "/350x350.webp"' media="(min-width: 416px)" type="image/webp">
+							<source [srcset]=' "/assets/images/prod/" + prod.id + "/350x350.png"'  media="(min-width: 416px)" type="image/png">
+							
+							<img [src]='"/assets/images/prod/" + prod.id + "/350x350.webp"' [alt]=" prod.nome + ' cover'" />
+						</picture>
+						
+						<p> {{prod.nome}}   </p>
+						<p> {{prod.prezzo | currency : "EUR"}} </p>
+						<a [routerLink]="'/products/item/' + prod.id"> Acquista </a>
+					</div> 
+
+			</ng-template> 
+
+		</ngb-carousel>
+
+		<!-- Prodotti desktop -->
+		<div class="containerP" *ngIf="!showMobile">
+
+			<div class="prodotto" *ngFor="let prod of products;">
+
+				<picture>
+					<source [srcset]='"/assets/images/prod/" + prod.id + "/460x460.webp"' media="(min-width: 1000px)" type="image/webp">
+					<source [srcset]='"/assets/images/prod/" + prod.id + "/460x460.png"'  media="(min-width: 1000px)" type="image/png">
+
+					<img [src]='"/assets/images/prod/" + prod.id + "/460x460.webp"' [alt]=" prod.nome + ' cover'" />
+				</picture>
+
+				<p> {{prod.nome}}   </p>
+				<p> {{prod.prezzo  | currency : "EUR"}} </p>
+				<a [routerLink]="'/products/item/' + prod.id"> Acquista </a>
+
+			</div>
+
+		</div>
+
+	</div>
+</section>
+
+
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+
+
+@use '../../../UtilitySass/all';
+
+
+$i540: "/assets/images/hero/back(540x720).jpg";
+$i1000:"/assets/images/hero/back(1000x895).jpg";
+$i2000:"/assets/images/hero/back(2000x800).jpg";
+$i3000:"/assets/images/hero/back(3000x1200).jpg";
+$c : rgba(0, 0, 0, 0.5);
+
+section{
+    background-image: linear-gradient( $c, $c ), url($i540);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+
+    @media all and ( min-width: 500px) { background-image: linear-gradient( $c, $c ), url($i1000); }
+    @media all and ( min-width: 1000px){ background-image: linear-gradient( $c, $c ), url($i2000); }
+    @media all and ( min-width: 2000px){ background-image: linear-gradient( $c, $c ), url($i3000); }
+}
+
+
+section{
+
+    // <div> container 
+    & > div{
+        width: 80%;
+        max-width: 470px;
+    
+        padding: 30px 0px;
+        margin: 0px auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
+        .descrizione{
+            width: 85%;
+            padding: 20px;
+            background-color: all.$color_back1;
+            border-radius: 20px;
+            line-height: 250%;     
+
+            p:first-of-type{ font-size: 1.5em; font-weight: bold;}
+            p:last-of-type { font-size: 1.1em;};
+            a { @include all.stileBtn( all.$color_back2, all.$color_text, 0px);  }   
+        }
+
+        picture{ img{ max-width: 100%; border-radius: 20px; @extend .box_shadow; } }
+    }
+}
+
+
+
+
+@media all and ( min-width: 1000px){
+
+    section{
+        max-height: 650px;
+
+        & > div {
+            width: 95%;
+            max-width: 1700px;
+            padding-bottom: 0px;
+
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 0px;
+
+            .descrizione{ max-width: 400px;}
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+

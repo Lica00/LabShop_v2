@@ -1,0 +1,118 @@
+@use '../../../UtilitySass/all';
+
+
+.hide{ display: none; }
+
+.container .containerP .hide2{ display: none;} 
+h3, legend, p, mat-icon{ color: all.$color_text; }
+
+
+.container{ 
+    display: grid;
+    grid-template-areas: 
+    " tit off" 
+    " prod prod" ;
+    gap: 10px;
+
+    h3{ grid-area: tit; }
+    .containerF{  grid-area: off; } 
+    .containerP{ grid-area: prod; } 
+
+    button{ cursor: pointer; }
+    & > button{ 
+        justify-self: flex-end;
+        padding: 10px 20px; 
+        @include all.stileBtn( all.$color_back2, all.$color_text ); 
+    }
+}
+
+
+
+.containerF{
+    .disabled{ opacity: 50%; cursor: default;}
+    hr{ border: 1px solid white; margin: 20px 0px; }
+
+    // Sub-Container filtri
+    & > div{
+        display: flex; 
+        flex-direction: column; 
+
+        // 1° <div> ( <h3> + <button> ) 
+        & > div { display: flex; justify-content: space-between;}
+
+        legend{ font-weight: bold; }  // all <legend>
+        mat-radio-group{ display: flex; flex-direction: column; };
+        mat-slider { width: 300px; max-width: 68%; }  // <input> range 
+
+        form > button{
+            @include all.stileBtn( all.$color_text, all.$color_back2 );
+            &:last-of-type{ margin-left: 10px;}
+        }
+
+        // Stile radio button ( attenzione a specificità )
+        #form ::ng-deep{
+            .mdc-label { color: all.$color_text; }                      // label
+            .mdc-radio__outer-circle{ border-color: all.$color_text; }  // border dot
+            .mdc-radio__inner-circle{ border-color: all.$color_back2; } // cerchio dot
+            .mat-mdc-radio-button.mat-accent{ --mat-radio-checked-ripple-color :  rgb(133, 90, 227); }  // shadow dot ( se usi var sass non funziona )
+            .mdc-slider__value-indicator{ opacity: 100%; color: all.$color_text; } // indicatore prezzo
+        }
+    }
+    
+}
+
+
+.containerP{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+
+    .prodotto{
+        max-width: 350px; 
+        text-align: center;
+        h3, p, a { margin-top: 10px; }
+        img{ max-width: 100%; }
+        a{ @include all.stileBtn( all.$color_text, all.$color_back2 ); }
+    }
+
+    .containerBtn{ 
+        flex: 0 0 100%; text-align: center; 
+        button{ 
+            @include all.stileBtn( all.$color_back2, all.$color_text ); 
+            cursor: pointer;
+        }
+    }
+}
+
+
+.offContainer{ 
+    @include all.modal( all.$color_background );
+
+    // sub-container filtri
+    & > div{ 
+        width: 60%;
+        max-width: 220px;
+        margin: 0px auto; 
+        position: relative;
+        top: 10%;
+    }
+}
+
+
+
+
+
+@media all and ( min-width: 1000px){
+
+    .container{
+        grid-template-areas: 
+        " off tit tit" 
+        " off prod prod"
+        ;
+    
+        .hide{ display: block;}
+        .containerF{ max-width: 320px; }
+        #form mat-slider{ max-width: 100%; }
+    }
+}

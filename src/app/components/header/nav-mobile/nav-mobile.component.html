@@ -1,0 +1,21 @@
+
+
+<div class="background" (click)="emettiEvento()">
+
+    <section (click)="stopProp($event)">
+
+        <nav> 
+            <ul> 
+                <li> 
+                    <a routerLink="manutenzione" (click)="emettiEvento()"> 
+                        <mat-icon aria-hidden="false" aria-label="icona login" fontIcon="account_circle"></mat-icon>
+                    </a> 
+                </li>
+                <li> <a routerLink="products" (click)="emettiEvento()"> Prodotti    </a> </li>
+                <li> <a routerLink="products" (click)="emettiEvento()"> Piattaforma </a> </li>
+            </ul>
+        </nav>
+
+    </section>
+
+</div>

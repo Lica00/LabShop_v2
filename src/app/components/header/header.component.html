@@ -1,0 +1,56 @@
+
+<div class="background"> 
+    <header> 
+        
+        <!-- Logo sx -->
+        <div class="containerLogo">
+            <a routerLink="home"> 
+
+                <picture>
+                    <source srcset="/assets/logo/l(133x40).webp" media="(max-width: 600px)" type="image/webp"> 
+                    <source srcset="/assets/logo/l(133x40).png"  media="(max-width: 600px)" type="image/png"> 
+
+                    <source srcset="/assets/logo/l(167x50).webp" media="(min-width: 601px) and (max-width: 800px)" type="image/webp">
+                    <source srcset="/assets/logo/l(167x50).png"  media="(min-width: 601px) and (max-width: 800px)" type="image/png">
+
+                    <source srcset="/assets/logo/l(200x60).webp" media="(min-width: 801px)" type="image/webp">
+                    <source srcset="/assets/logo/l(200x60).png"  media="(min-width: 801px)" type="image/png"> 
+                    
+                    <img src="/assets/logo/l(200x60).png" alt="logo academy"/> 
+                </picture>
+
+            </a>
+        </div>
+
+        <!-- navbar centrale ( solo desktop ) -->
+        <nav> 
+            <ul> 
+                <li> <a routerLink="products"> Prodotti    </a> </li>
+                <li> <a routerLink="products"> Piattaforma </a> </li>
+            </ul>
+        </nav>
+
+        <!-- Icone dx  -->
+        <div class="containerIcons">
+
+            <button type="button"(click)="toggleSearch()" > 
+                <mat-icon aria-hidden="false" aria-label="icona ricerca" fontIcon="search"></mat-icon>
+            </button>
+            
+            <a routerLink="checkout">      <mat-icon aria-hidden="false" aria-label="icona carrello" fontIcon="shopping_cart">  </mat-icon> </a>
+            <a routerLink="manutenzione">  <mat-icon aria-hidden="false" aria-label="icona login"    fontIcon="account_circle"> </mat-icon> </a>
+            
+            <button type="button" (click)="toggleMobile()"> 
+                <mat-icon aria-hidden="false" aria-label="icona menu mobile" fontIcon="view_headline">  </mat-icon> 
+            </button>
+              
+        </div>
+
+    </header>
+</div>
+
+
+<app-nav-mobile *ngIf="showNavMobile" (closeEvent)="toggleMobile()"> </app-nav-mobile>
+<app-search *ngIf="showSearchBar" (closeEvent)="toggleSearch()"> </app-search>
+
+

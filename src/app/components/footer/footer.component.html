@@ -1,0 +1,46 @@
+
+
+
+
+<div class="background"> 
+    <footer>
+
+        <nav class="navMenu"> 
+
+            <ul *ngFor="let voce of arrVoci;">
+                
+                <li (click)="show(voce)"> 
+                    <h3> {{ voce.titolo }} </h3 > 
+                    <mat-icon aria-hidden="false" aria-label="X" [fontIcon]="voce.arrow"></mat-icon>
+                </li>
+            
+                <li>
+                    <ul [ngClass]=" { 'hide' :voce.hideSub } ">
+                        <li *ngFor="let subVoci of voce.subVoci"> <a routerLink="manutenzione">  {{subVoci}} </a> </li>
+                    </ul>
+                </li>
+            
+            </ul>
+            
+        </nav>
+
+        <div class="containerIcons"> 
+
+            <nav class="icons" *ngFor="let icon of arrIcons">
+                <h3> {{icon.tipo}} </h3>
+
+                <ul> 
+                    <li *ngFor="let i of icon.icone">
+                        <a routerLink="manutenzione">
+                            <mat-icon aria-hidden="false" [attr.aria-label]="'icona ' + i" [fontIcon]="i"></mat-icon>  
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </footer>
+</div>
+

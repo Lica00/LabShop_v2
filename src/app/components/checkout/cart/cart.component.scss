@@ -1,0 +1,29 @@
+
+@use '../../../UtilitySass/all';
+
+
+.container{
+    max-width: 500px;
+    margin: 0px auto;
+    margin-bottom: 80px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: all.$color_text; 
+}
+
+
+@media all and ( min-width: 1000px){
+
+    .container{
+        max-width: 1200px;
+        flex-direction: row;
+        justify-content: center;
+
+        app-recap-prod{ flex: 0 0 60%; }
+        app-recap-cart{ flex: 0 0 20%; }
+    }
+}
+
+

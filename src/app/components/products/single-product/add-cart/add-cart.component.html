@@ -1,0 +1,25 @@
+
+
+
+<div class="popUp" [ngClass]="{ 'newPosition' : animation }">
+
+    <picture>
+        <source [srcset]='"/assets/images/prod/" + prodotto.id + "/50x75.webp"' type="image/webp">
+        <source [srcset]='"/assets/images/prod/" + prodotto.id + "/50x75.png"'  type="image/png">
+
+        <img [src]='"/assets/images/prod/" + prodotto.id + "/50x75.webp"' [alt]='prodotto.nome + "cover"' />
+    </picture>
+
+    <div class="info">
+        <h3> {{prodotto.nome}}  </h3> 
+        <span> {{prodotto.versioni}} </span> <span> {{prodotto.piattaforme}} </span>
+    </div>
+    
+    <p> {{prodotto.prezzo | currency : "EUR"}} </p>
+   
+    <div class="btn"> 
+        <a routerLink="/checkout/cart"> Visualizza carrello </a>
+        <a routerLink="/checkout/payment"> Pagamento </a>
+    </div>
+
+</div>

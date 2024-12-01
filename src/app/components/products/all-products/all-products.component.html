@@ -1,0 +1,102 @@
+
+
+
+<div class="container"> 
+
+
+    <h3> Prodotti </h3>
+    <button type="button" (click)="toggleFilter()" *ngIf="onMobile"> Filtra </button>
+
+    <!-- Container filtri -->
+    <div [ngClass]="{ 'hide' : !showFilterMobile, 'offContainer' : onMobile }" class="containerF">
+        
+        <!-- Sub-Container filtri -->
+        <div> 
+            
+            <div> 
+                <h3> Filtra i prodotti </h3>
+                <button type="button" (click)="toggleFilter()" *ngIf="onMobile">
+                    <mat-icon aria-hidden="false" aria-label="icon chiudi" fontIcon="close"></mat-icon> 
+                </button>
+            </div>
+
+            <hr>
+
+            <form (ngSubmit)="filtra()" [formGroup]="formFiltri" id="form">
+
+                <fieldset>
+                    <legend> Categoria </legend>  
+                        <mat-radio-group aria-label="Seleziona categoria" formControlName="categoria">
+                            <mat-radio-button [value]="cat" *ngFor="let cat of listaCategorie"> {{cat}} </mat-radio-button>
+                        </mat-radio-group>
+                </fieldset>
+
+                <hr>
+
+                <fieldset>
+                    <legend> Piattaforma </legend>
+                    <mat-radio-group aria-label="Seleziona piattaforma" formControlName="piattaforma">
+                        <mat-radio-button [value]="plat" *ngFor="let plat of listaPiattaforme"> {{plat}} </mat-radio-button>
+                    </mat-radio-group>
+                </fieldset>
+
+                <hr>
+
+                <fieldset>
+                    <legend> Prezzo </legend>
+                    <mat-slider min="0" max="80" step="5" showTickMarks  discrete="true" >
+                        <input  matSliderThumb formControlName="prezzoMax">
+                    </mat-slider>
+                </fieldset>
+
+                <button type="submit" [disabled]="!formFiltri.dirty" [ngClass]=" { 'disabled' : !formFiltri.dirty }"> Applica filtri </button>
+                <button type="reset"  [disabled]="!formFiltri.dirty" [ngClass]=" { 'disabled' : !formFiltri.dirty }" (click)="rangeProd(true)"> Resetta </button>
+
+            </form>
+ 
+        </div>
+    </div>
+
+ 
+
+    <!-- Container prodotti -->
+    <div class="containerP">
+
+        <p [ngClass]="{ 'hide2' : !noProdTrovato}"> Nessun prodotto trovato con i filtri applicati </p>
+       
+        <div class="prodotto" *ngFor="let prod of prodotti">
+
+            <picture>
+                <source [srcset]=' "/assets/images/prod/" + prod.id + "/250x250.webp"' media="(max-width: 1000px)" type="image/webp">
+                <source [srcset]=' "/assets/images/prod/" + prod.id + "/250x250.png"'  media="(max-width: 1000px)" type="image/png">
+
+                <source [srcset]=' "/assets/images/prod/" + prod.id + "/350x350.webp"' media="(min-width: 1001px) and (max-width: 1500px)" type="image/webp">
+                <source [srcset]=' "/assets/images/prod/" + prod.id + "/350x350.png"'  media="(min-width: 1001px) and (max-width: 1500px)" type="image/png">
+
+                <source [srcset]=' "/assets/images/prod/" + prod.id + "/460x460.webp"' media="(max-width: 3000px)" type="image/webp">
+                <source [srcset]=' "/assets/images/prod/" + prod.id + "/460x460.png"'  media="(max-width: 3000px)" type="image/png">
+
+                <img [src]='"/assets/images/prod/" + prod.id + "/350x350.webp"' [alt]=' prod.nome + "cover"' />
+            </picture>
+
+            <h3> {{ prod.nome}} </h3>
+            <p>  {{ prod.prezzo | currency : "EUR"}}  </p>
+            <a [routerLink]='"/products/item/" + prod.id'> Acquista </a>
+
+
+        </div>
+
+        <div class="containerBtn">
+            <button type="button" (click)="rangeProd(false)" [ngClass]="{'hide2' : !btnLoadMore}"> Carica altri prodotti </button>
+        </div>
+      
+       
+    </div>
+
+   
+
+</div>
+
+
+
+

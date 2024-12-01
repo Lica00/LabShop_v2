@@ -1,0 +1,117 @@
+
+@use '../../../UtilitySass/all';
+
+
+.container{
+  max-width: 500px; 
+  margin: 0px auto;
+  display: grid;
+  gap: 20px;
+  h2{ justify-self: center; color: all.$color_text; }
+}
+
+
+mat-accordion{
+  
+  mat-expansion-panel{
+    background-color: transparent;
+
+    .mat-expansion-panel-header{ 
+      padding: 0px 12px;
+      border: 1px solid all.$color_text;
+
+      mat-panel-title{ color: all.$color_text; } 
+      &:hover, &:focus{ background-color: transparent;}
+      ::ng-deep .mat-expansion-indicator::after{ color: all.$color_text; } // icon arrow accordion
+    }
+    
+    ::ng-deep .mat-expansion-panel-body{  
+      display: flex;
+      flex-direction: column;
+      gap: 30px; 
+      padding: 0px 12px; 
+      margin-top: 20px;
+    }
+
+  }
+  
+}
+
+  
+
+
+.mat-stepper-vertical, .mat-stepper-horizontal{ background-color: transparent; } // background container stepper
+
+::ng-deep .mat-horizontal-stepper-header-container, ::ng-deep .mat-step { 
+  .mat-stepper-vertical-line::before{ border-left-color: all.$color_text;  } // Linea separatrice step ( vertical ) 
+  .mat-stepper-horizontal-line{ border-top-color: all.$color_text;  }        // Linea separatrice step ( hotizontal ) 
+}
+
+::ng-deep .mat-step-header{  
+  .mat-step-text-label{ color: all.$color_text; }               // Label singolo step 
+  .mat-step-icon{ background-color: all.$color_back3;}          // dot step ( non selezionato ) 
+  .mat-step-icon-selected{background-color: all.$color_back1;}  // dot step ( selezionato ) 
+}
+
+::ng-deep .mat-mdc-form-field{
+  .mdc-text-field--filled:not(.mdc-text-field--disabled){ background-color: all.$color_back4;} // background input
+}
+
+
+form{
+  display: flex; flex-direction: column;
+  gap: 5px; margin-top: 10px;
+}
+
+.recap{ 
+  display: flex; flex-direction: column;
+  gap: 15px; margin-bottom: 15px;
+  color: all.$color_text;
+  div { line-height: 150%; }
+}
+
+.btn{
+
+  button{
+     @include all.stileBtn(all.$color_text, all.$color_back2, $margine: 0); 
+     font-weight: normal; 
+     &:last-of-type{ margin-left: 10px; };
+     &:first-of-type { margin-left: 0px;};
+  }
+}
+
+
+
+
+@media all and ( min-width: 1000px){
+
+  .container{
+    max-width: 1200px;
+    margin-bottom: 80px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    h2{ grid-column: 1 / 4; grid-row: 1; }  
+    mat-accordion{ grid-column: 3 / 4; grid-row: 2 / 3;}
+    mat-stepper{ grid-column: 1 / 3; grid-row: 2 / 3; }
+  }
+
+  form{ flex-direction: row; flex-wrap: wrap; gap: 15px; }
+  .recap{ flex-direction: row; div{ flex: 0 0 50%;} }
+  .btn{ flex: 0 0 100%; }
+
+}
+
+
+
+.ordineCompleto{
+  color: all.$color_text;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+
+
+
+

@@ -1,0 +1,23 @@
+
+
+<section>
+    <div class="container">
+
+      <div class="containerPromo">
+        <h2> Registrati adesso </h2>
+        <p> -10% su tutti i giochi </p>
+        <a routerLink="/manutenzione"> Ottieni ora </a>
+      </div>
+  
+      <div class="containerImmagini">
+
+        <picture *ngFor="let prod of products"> <!-- Diverso formato uguale immagine -->
+            <source [srcset]='"/assets/images/prod/" + prod.id + "/200x300.png"'  type="image/webp">
+            <source [srcset]='"/assets/images/prod/" + prod.id + "/200x300.png"'  type="image/png">
+            <img [src]='"/assets/images/prod/" + prod.id + "/200x300.png"' [alt]=" prod.nome + ' cover'">
+        </picture>
+
+      </div>
+
+    </div>
+</section>

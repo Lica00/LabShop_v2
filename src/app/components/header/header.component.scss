@@ -1,0 +1,79 @@
+
+@use '../../UtilitySass/all';
+
+.background{ @extend .background_gradient; }
+
+a, mat-icon{ color: all.$color_text; &:hover{ opacity: 50%; } }
+.containerLogo a:hover{ opacity: 100%; }
+
+header{
+    width: 95%;
+    max-width: 1700px;
+    padding: 15px;
+    margin: 0px auto;
+
+    display: grid;
+    grid-template-areas: "logo icons";
+
+    .containerLogo{ grid-area: logo; }
+
+    nav{ grid-area: navb; display: none; }
+
+    .containerIcons{ 
+        grid-area: icons;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center; 
+        gap: 7px; 
+
+        a:nth-of-type(2){ display: none; } // icona user visibile solo su desktop 
+    }
+    button{ cursor: pointer; }
+
+}
+
+
+
+@media all and ( min-width: 720px){
+
+    header{
+
+        // modifica griglia per <nav> su desktop
+        grid-template-areas: "logo navb icons";
+        grid-template-columns: 1fr 1fr 0fr;
+
+        // nav centrale 
+        nav{ 
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            
+            & > ul{
+                display: flex;
+                gap: 20px;
+                margin-right: 15px;
+                position: relative;
+                li{ font-size: 1.1em;}
+            }
+        }
+
+        // div icone dx 
+        .containerIcons{ 
+
+            // show icona user / hide icona navMobile
+            a:nth-of-type(2){ display: inline; }
+            button:nth-of-type(2){ display: none; }
+        }
+
+    }
+
+}
+
+
+
+
+
+
+
+

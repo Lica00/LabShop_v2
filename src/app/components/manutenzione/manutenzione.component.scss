@@ -1,0 +1,20 @@
+
+@use '../../UtilitySass/all';
+
+section {
+    width: 85%;
+    max-width: 700px;
+    margin: 80px auto;
+    margin-bottom: 170px;
+    color: all.$color_text;
+    text-align: center;
+
+    img{
+        max-width: 100%;
+        margin-top: 20px;
+        border-radius: 10px;
+        cursor: pointer;   
+    }
+
+}
+

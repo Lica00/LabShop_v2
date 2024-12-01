@@ -1,0 +1,50 @@
+
+
+
+$color_text: white;
+$color_background: black; 
+
+$color_back1: rgb(160, 115, 255);       // Usato per background in "home" ( rettangoli ) 
+$color_back2: rgb(133, 90, 227);        // Usato per il mixin "stileBtn"
+$color_back3: rgba(150, 150, 150, 0.9); // Usato per dot in "payment"
+$color_back4: rgb(255, 252, 248);       // Usato per background in "search" 
+$color_back5: rgba(41, 41, 41, 0.9);    // Usato per background in "search" / "nav-mobile"
+
+
+$color_gradient_1 : rgb(143, 85, 235);
+$color_gradient_2 : rgb(115, 64, 211);
+$color_gradient_3 : rgb(144, 43, 198);
+
+$color_shadow :  rgba(46, 46, 46, 0.6); 
+
+
+// Usanto per sfondo gradiente in "header" - "footer" 
+.background_gradient{
+    background-image: linear-gradient( to right, $color_gradient_1, $color_gradient_2, $color_gradient_3);
+}
+
+
+// Usando per i prodotti in "hero-banner" - "promo" 
+.box_shadow{ box-shadow: 0px 0px 20px 8px $color_shadow; }
+
+
+@mixin stileBtn($color1, $color2, $padVert: 10px, $padHorz: 20px, $margine : 10px){
+    display: inline-block; 
+    padding: $padVert $padHorz; 
+    margin-top: $margine; 
+    border-radius: 20px;
+    font-weight: bold; 
+    color: $color1; background-color: $color2;
+    &:hover{ color: $color2; background-color: $color1;} // inverte colori se in :hover
+}
+
+
+@mixin modal( $color, $deep : 2 ){
+    width: 100vw;
+    height: 100vh;
+    background-color: $color;
+
+    position: fixed;
+    top: 0%; left: 0%;
+    z-index: $deep;
+}

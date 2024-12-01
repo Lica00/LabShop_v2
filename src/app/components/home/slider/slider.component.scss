@@ -1,0 +1,63 @@
+
+@use '../../../UtilitySass/all';
+
+
+section{ 
+    padding: 55px 0px 20px 0px;
+    color: all.$color_text;
+    
+    // <div> container
+    & > div{
+        width: 95%;
+        max-width: 650px;
+        margin: 0px auto;
+        
+        & > a { @include all.stileBtn( all.$color_back2, all.$color_text); } 
+        h2 { font-size: 1.6em; }
+    }
+}
+
+
+
+// <div> prodotti ( solo desktop )
+.containerP{
+    width: 95%;
+    margin: 20px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+// <div> singolo prodotto ( mobile + desktop )
+.prodotto{
+    text-align: center;
+
+    p, a { margin-top: 10px; }
+    img{ max-width: 100%; }
+
+    a{  @include all.stileBtn( all.$color_text, all.$color_back2); } 
+    p:nth-of-type(1){ font: { size: 1.17em; weight: bold; } }
+}
+
+
+
+// Stile custom carousel
+::ng-deep{
+    .carousel{
+        width: 65%;
+        max-width: 350px;
+        margin: 20px auto;
+        margin-bottom: 0px;
+    }
+
+    .carousel-control-next-icon, .carousel-control-prev-icon{ background-size: 100% 100%; }
+    .carousel-control-next{ right: -20%; }
+    .carousel-control-prev{ left: -20%; }
+}
+
+
+@media all and ( min-width: 1000px ){ section > div { max-width: 1500px; } }
+
+
+

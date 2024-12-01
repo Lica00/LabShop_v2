@@ -1,0 +1,18 @@
+@use '../../../UtilitySass/all';
+
+.riepilogo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    color: all.$color_text;
+
+    p{ font-size: 1rem;}
+    hr{ border: 1px solid all.$color_text;  }
+    div{ display: flex; justify-content: space-between; align-items: center}
+
+    // I btn sono leggermente diversi se in "cart" o in "payment"
+    a.cart{ @include all.stileBtn(all.$color_text, all.$color_back2); }
+    a.pay{  @include all.stileBtn(all.$color_text, all.$color_back2, 5px, 10px, 0px);  }
+    a.cart, a.pay{ text-align: center; font-weight: 500; }
+
+}

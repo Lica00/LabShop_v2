@@ -1,0 +1,52 @@
+
+
+<div class="container" *ngIf="prodotto != undefined">
+
+    
+    <div class="immagini"> 
+        <picture>
+            <source [srcset]='"/assets/images/prod/" + prodotto.id + "/350x350.webp"'  type="image/webp">
+            <source [srcset]='"/assets/images/prod/" + prodotto.id + "/350x350.png"'   type="image/png">
+
+            <img [src]='"/assets/images/prod/" + prodotto.id + "/350x350.webp"' [alt]='prodotto.nome + "cover"'/>
+        </picture>
+    </div>
+
+    <div class="titolo"> 
+        <h3> {{prodotto.nome}} </h3>
+        <p>  {{prodotto.prezzo | currency : "EUR"}} </p>
+    </div>
+
+    <form class="selezione" (ngSubmit)="addToCart()" [formGroup]="form">
+
+        <mat-form-field>
+            <mat-label>Versione</mat-label>
+            <mat-select formControlName="version">
+                <mat-option *ngFor="let ver of prodotto.versioni" [value]="ver"> {{ver}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Piattaforma</mat-label>
+            <mat-select formControlName="platform">
+                <mat-option *ngFor="let plat of prodotto.piattaforme" [value]="plat"> {{plat}}  </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button type="submit"> Aggiungi al carrello  </button>  
+        
+    </form>
+
+    <div class="descrizione">
+        <h3>{{ prodotto.info.titolo }}     </h3>
+        <p> {{ prodotto.info.contenuto1 }} </p> 
+        <p> {{ prodotto.info.contenuto2 }} </p>             
+    </div>
+    
+
+</div>
+
+<app-slider [products]="arrProducts"> </app-slider>
+
+<app-add-cart *ngIf="showPopUp" [prodotto]="prodottoPop"></app-add-cart>
+

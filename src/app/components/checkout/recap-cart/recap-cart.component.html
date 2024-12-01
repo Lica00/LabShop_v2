@@ -1,0 +1,33 @@
+
+
+<div class="riepilogo">
+
+    <div>
+        <h3> Totale ordine </h3>
+        <!-- Mostrato se path "/payment" -->
+        <a routerLink="/checkout/cart" *ngIf="!pathCart" class="pay"> Torna al carrello </a>
+    </div>
+ 
+    <hr> 
+
+    <div>
+        <p> Subtotale </p> 
+        <p> {{valoreCart.subTotale | currency : "EUR"}} </p>
+    </div>
+
+    <div>
+        <p> Spedizione </p> 
+        <p> {{valoreCart.spedizione | currency : "EUR"}} </p>
+    </div>
+
+    <hr> 
+
+    <div>
+        <p> Totale </p> 
+        <p> {{ valoreCart.totaleCart  | currency : "EUR"}} </p>
+    </div>
+
+    <!-- Mostrato se path "/cart" -->
+    <a routerLink="/checkout/payment" *ngIf="pathCart" class="cart"> Checkout </a>
+
+</div>

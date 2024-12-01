@@ -1,0 +1,31 @@
+@use '../../../UtilitySass/all';
+
+
+h3, p{  color: all.$color_text; }
+
+.singoloProdotto{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    position: relative;
+    color: all.$color_text;
+
+    img{ border-radius: 10px; }
+
+    .info{ flex: 1 1 0%; }
+
+    button{
+        color: all.$color_text; 
+        &:hover{ opacity: 50%;}
+        cursor: pointer; 
+    }
+
+    // Linea separatrice tra i prodotti
+    &::before{
+        content: "";
+        border: 1px solid white;
+        width: 100%;
+        position: absolute;  top: -15%;    
+    }
+}

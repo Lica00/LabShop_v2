@@ -1,0 +1,41 @@
+
+
+
+<div class="background" (click)="emettiEvento()">
+        <section (click)="stopProp($event)"> 
+
+                <!-- Search -->
+                <div class="containerSearch"> 
+                        
+                        <button type="button" (click)="cerca()"> 
+                                <mat-icon aria-hidden="false" aria-label="icona ricerca" fontIcon="search"></mat-icon> 
+                        </button>
+
+                        <input type="text" [(ngModel)]="ricerca" placeholder="Cerca quello che vuoi" (input)="cerca()"/>
+
+                        <button type="button" (click)="emettiEvento()"> 
+                                <mat-icon aria-hidden="false" aria-label="icona chiudi" fontIcon="close"></mat-icon> 
+                        </button>
+                </div>
+
+                <!-- Container products -->
+                <div class="containerProducts">
+
+                        <!-- Naviga a prodotto premuto ( passaggio dati a componente "SingleProduct" ) -->
+                        <div class="containerSingolo" *ngFor="let prod of prodotti" [routerLink]="'products/item/' + prod.id" [state]="prod" (click)="emettiEvento()"> 
+                                
+                                <picture> <!-- Diverso formato uguale immagine -->
+                                        <source [srcset]="'/assets/images/prod/' + prod.id + '/50x75.webp'" type="image/webp"> 
+                                        <source [srcset]="'/assets/images/prod/' + prod.id + '/50x75.png'"  type="image/png"> 
+                                        <img [src]="'/assets/images/prod/' + prod.id + '/50x75.webp'" [alt]="prod.nome + 'cover'"/>
+                                </picture>
+
+                                <div> <h3> {{prod.nome}} </h3> </div>
+                                
+                                <p> {{ prod.prezzo | currency : "EUR"}} </p>
+                                
+                        </div>
+                </div>
+
+        </section>      
+</div>

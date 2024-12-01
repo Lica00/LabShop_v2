@@ -1,0 +1,49 @@
+
+@use '../../../UtilitySass/all';
+
+
+.background{ @include all.modal(all.$color_back5); }
+
+
+section{
+    width: 95%; 
+    max-width: 500px;
+    margin: 0px auto;
+
+    position: relative;
+    top: 10%;
+
+    .containerSearch, .containerProducts{
+        padding: 15px;
+        border-radius: 10px;
+        background-color: all.$color_back4;
+    }
+
+    .containerSearch{ 
+        display: flex;
+        gap: 10px;
+        input{ flex: 1 1 0%; }
+        button { max-height: 24px; cursor: pointer;} 
+    }
+
+    .containerProducts{ margin-top: 20px; }
+   
+    .containerSingolo{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        cursor: pointer;
+        
+        &:first-of-type{margin-top: 0px;} // 1° <div> .containerSingolo
+        img{ border-radius: 10px; } 
+        div{ flex: 1 1 0%; }    
+    }
+}
+
+
+@media all and ( min-width: 1500px){
+    section{ max-width: 800px; }
+}
+
+
