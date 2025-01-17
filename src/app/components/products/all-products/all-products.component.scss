@@ -83,6 +83,7 @@ h3, legend, p, mat-icon{ color: all.$color_text; }
             cursor: pointer;
         }
     }
+    mat-spinner{margin: 100px 0; }
 }
 
 
@@ -115,4 +116,7 @@ h3, legend, p, mat-icon{ color: all.$color_text; }
         .containerF{ max-width: 320px; }
         #form mat-slider{ max-width: 100%; }
     }
+
+    .containerP{ mat-spinner{margin: 150px 0; } }
+
 }

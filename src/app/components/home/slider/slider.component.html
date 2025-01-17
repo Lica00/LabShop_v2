@@ -8,6 +8,9 @@
 		<h2> Titoli di tendenza </h2>
 		<a routerLink="/products"> Vedi tutti i prodotti </a>
 		
+		<!-- Se non riceve dati -- in home è null, ma in products è array vuoto -->
+		<mat-spinner *ngIf="!products || products.length == 0"></mat-spinner>
+		
 		<!-- Prodotti mobile ( slider )-->
 		<ngb-carousel [showNavigationIndicators]="false" *ngIf="showMobile">
 
