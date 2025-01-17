@@ -10,6 +10,9 @@
       </div>
   
       <div class="containerImmagini">
+        
+        <!-- Se non riceve dati -- in home è null, ma in cart è array vuoto -->
+        <mat-spinner *ngIf="!products  || products.length == 0 "></mat-spinner>
 
         <picture *ngFor="let prod of products"> <!-- Diverso formato uguale immagine -->
             <source [srcset]='"/assets/images/prod/" + prod.id + "/200x300.png"'  type="image/webp">

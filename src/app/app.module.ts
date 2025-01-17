@@ -40,7 +40,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -83,7 +83,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSelectModule,
     MatRadioModule,
     MatSliderModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     provideAnimationsAsync()

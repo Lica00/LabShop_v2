@@ -62,6 +62,8 @@
     <!-- Container prodotti -->
     <div class="containerP">
 
+        <mat-spinner *ngIf="prodotti.length == 0 && !noProdTrovato"></mat-spinner>
+
         <p [ngClass]="{ 'hide2' : !noProdTrovato}"> Nessun prodotto trovato con i filtri applicati </p>
        
         <div class="prodotto" *ngFor="let prod of prodotti">
