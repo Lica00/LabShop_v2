@@ -11,7 +11,7 @@ export class RequestHttpService {
 
   constructor() {}
   http : HttpClient = inject(HttpClient);
-  url : string = "http://localhost:3000/prodotti";
+  url : string = "https://json-server-jdl8.onrender.com/prodotti";
 
   getAll() : Observable<prodotto[]> {
     return this.http.get<prodotto[]>( this.url );
