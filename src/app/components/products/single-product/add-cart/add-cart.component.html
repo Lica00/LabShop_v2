@@ -7,15 +7,15 @@
         <source [srcset]='"/assets/images/prod/" + prodotto.id + "/50x75.webp"' type="image/webp">
         <source [srcset]='"/assets/images/prod/" + prodotto.id + "/50x75.png"'  type="image/png">
 
-        <img [src]='"/assets/images/prod/" + prodotto.id + "/50x75.webp"' [alt]='prodotto.nome + "cover"' />
+        <img [src]='"/assets/images/prod/" + prodotto.id + "/50x75.webp"' [alt]='prodotto.name + "cover"' />
     </picture>
 
     <div class="info">
-        <h3> {{prodotto.nome}}  </h3> 
-        <span> {{prodotto.versioni}} </span> <span> {{prodotto.piattaforme}} </span>
+        <h3> {{prodotto.name}}  </h3> 
+        <span> {{prodotto.category.name}} </span> <span> {{prodotto.platform.name}} </span>
     </div>
     
-    <p> {{prodotto.prezzo | currency : "EUR"}} </p>
+    <p> {{prodotto.price | currency : "EUR"}} </p>
    
     <div class="btn"> 
         <a routerLink="/checkout/cart"> Visualizza carrello </a>

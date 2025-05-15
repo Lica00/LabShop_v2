@@ -17,7 +17,7 @@
         <picture *ngFor="let prod of products"> <!-- Diverso formato uguale immagine -->
             <source [srcset]='"/assets/images/prod/" + prod.id + "/200x300.png"'  type="image/webp">
             <source [srcset]='"/assets/images/prod/" + prod.id + "/200x300.png"'  type="image/png">
-            <img [src]='"/assets/images/prod/" + prod.id + "/200x300.png"' [alt]=" prod.nome + ' cover'">
+            <img [src]='"/assets/images/prod/" + prod.id + "/200x300.png"' [alt]=" prod.name + ' cover'">
         </picture>
 
       </div>

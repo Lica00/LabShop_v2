@@ -27,12 +27,12 @@
                                 <picture> <!-- Diverso formato uguale immagine -->
                                         <source [srcset]="'/assets/images/prod/' + prod.id + '/50x75.webp'" type="image/webp"> 
                                         <source [srcset]="'/assets/images/prod/' + prod.id + '/50x75.png'"  type="image/png"> 
-                                        <img [src]="'/assets/images/prod/' + prod.id + '/50x75.webp'" [alt]="prod.nome + 'cover'"/>
+                                        <img [src]="'/assets/images/prod/' + prod.id + '/50x75.webp'" [alt]="prod.name + 'cover'"/>
                                 </picture>
 
-                                <div> <h3> {{prod.nome}} </h3> </div>
+                                <div> <h3> {{prod.name}} </h3> </div>
                                 
-                                <p> {{ prod.prezzo | currency : "EUR"}} </p>
+                                <p> {{ prod.price | currency : "EUR"}} </p>
                                 
                         </div>
                 </div>

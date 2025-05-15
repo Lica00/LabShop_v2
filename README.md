@@ -4,7 +4,7 @@ Questo è il front-end di un e-commerce dedicato alla vendita di videogiochi, sv
 come secondo progetto durante il corso di Full Stack Development presso la scuola LabForTraining.
 
 Si tratta di un'applicazione web dinamica, sviluppata utilizzando Angular, TypeScript e Sass,   
-ed usando un json-server per simulare un backend e recuperare i dati necessari tramite richieste HTTP.
+ed usando un springboot per il backend e recuperare i dati necessari tramite richieste HTTP.
 
 Il progetto è stato creato con [Angular CLI](https://github.com/angular/angular-cli) versione 17.2.2.
 

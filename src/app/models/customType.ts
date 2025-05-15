@@ -4,14 +4,15 @@ import { FormGroup } from "@angular/forms";
 export type prodotto = 
     {
         id: string,
-        nome: string,
-        categoria: string,
-        prezzo: number,
-        versioni: string [],
-        piattaforme: string [],
-        info: { titolo : string, contenuto1: string, contenuto2 : string } 
+        name: string,
+        descr1 : string,
+        descr2 : string,
+        price: number,
+        category: { id: number, name : string },
+        platform: { id: number, name : string },
     }
 ;
+
 
 export type totCart = { subTotale : number, spedizione : number,  totaleCart : number }
 

@@ -14,15 +14,15 @@
         <source [srcset]='"/assets/images/prod/" + prod.id + "/80x120.webp"' media="(min-width: 1000px)" type="image/webp">
         <source [srcset]='"/assets/images/prod/" + prod.id + "/80x120.png"'  media="(min-width: 1000px)" type="image/png">
 
-        <img [src]='"/assets/images/prod/" + prod.id + "/80x120.webp"' [alt]='prod.nome + "cover"'/>
+        <img [src]='"/assets/images/prod/" + prod.id + "/80x120.webp"' [alt]='prod.name + "cover"'/>
     </picture>
 
     <div class="info">
-        <h3> {{prod.nome}} </h3> 
-        <span> {{prod.versioni}} </span> <span> {{prod.piattaforme}} </span>
+        <h3> {{prod.name}} </h3> 
+        <span> {{prod.category.name}} </span> <span> {{prod.category.name}} </span>
     </div>
     
-    <p> {{prod.prezzo | currency : "EUR"}} </p>
+    <p> {{prod.price | currency : "EUR"}} </p>
 
     <button type="button" (click)="remove(prod.id)" *ngIf="pathCart">
         <mat-icon aria-hidden="false" aria-label="icona elimina" fontIcon="delete"></mat-icon>  

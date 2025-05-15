@@ -27,7 +27,7 @@
                 <fieldset>
                     <legend> Categoria </legend>  
                         <mat-radio-group aria-label="Seleziona categoria" formControlName="categoria">
-                            <mat-radio-button [value]="cat" *ngFor="let cat of listaCategorie"> {{cat}} </mat-radio-button>
+                            <mat-radio-button [value]="i + 1" *ngFor="let cat of listaCategorie; let i = index;"> {{cat}} </mat-radio-button>
                         </mat-radio-group>
                 </fieldset>
 
@@ -36,7 +36,7 @@
                 <fieldset>
                     <legend> Piattaforma </legend>
                     <mat-radio-group aria-label="Seleziona piattaforma" formControlName="piattaforma">
-                        <mat-radio-button [value]="plat" *ngFor="let plat of listaPiattaforme"> {{plat}} </mat-radio-button>
+                        <mat-radio-button [value]="i + 1" *ngFor="let plat of listaPiattaforme; let i = index;"> {{plat}} </mat-radio-button>
                     </mat-radio-group>
                 </fieldset>
 
@@ -78,11 +78,11 @@
                 <source [srcset]=' "/assets/images/prod/" + prod.id + "/460x460.webp"' media="(max-width: 3000px)" type="image/webp">
                 <source [srcset]=' "/assets/images/prod/" + prod.id + "/460x460.png"'  media="(max-width: 3000px)" type="image/png">
 
-                <img [src]='"/assets/images/prod/" + prod.id + "/350x350.webp"' [alt]=' prod.nome + "cover"' />
+                <img [src]='"/assets/images/prod/" + prod.id + "/350x350.webp"' [alt]=' prod.name + "cover"' />
             </picture>
 
-            <h3> {{ prod.nome}} </h3>
-            <p>  {{ prod.prezzo | currency : "EUR"}}  </p>
+            <h3> {{ prod.name}} </h3>
+            <p>  {{ prod.price | currency : "EUR"}}  </p>
             <a [routerLink]='"/products/item/" + prod.id'> Acquista </a>
 
 

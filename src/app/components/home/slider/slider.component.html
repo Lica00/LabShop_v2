@@ -24,11 +24,11 @@
 							<source [srcset]=' "/assets/images/prod/" + prod.id + "/350x350.webp"' media="(min-width: 416px)" type="image/webp">
 							<source [srcset]=' "/assets/images/prod/" + prod.id + "/350x350.png"'  media="(min-width: 416px)" type="image/png">
 							
-							<img [src]='"/assets/images/prod/" + prod.id + "/350x350.webp"' [alt]=" prod.nome + ' cover'" />
+							<img [src]='"/assets/images/prod/" + prod.id + "/350x350.webp"' [alt]=" prod.name + ' cover'" />
 						</picture>
 						
-						<p> {{prod.nome}}   </p>
-						<p> {{prod.prezzo | currency : "EUR"}} </p>
+						<p> {{prod.name}}   </p>
+						<p> {{prod.price | currency : "EUR"}} </p>
 						<a [routerLink]="'/products/item/' + prod.id"> Acquista </a>
 					</div> 
 
@@ -45,11 +45,11 @@
 					<source [srcset]='"/assets/images/prod/" + prod.id + "/460x460.webp"' media="(min-width: 1000px)" type="image/webp">
 					<source [srcset]='"/assets/images/prod/" + prod.id + "/460x460.png"'  media="(min-width: 1000px)" type="image/png">
 
-					<img [src]='"/assets/images/prod/" + prod.id + "/460x460.webp"' [alt]=" prod.nome + ' cover'" />
+					<img [src]='"/assets/images/prod/" + prod.id + "/460x460.webp"' [alt]=" prod.name + ' cover'" />
 				</picture>
 
-				<p> {{prod.nome}}   </p>
-				<p> {{prod.prezzo  | currency : "EUR"}} </p>
+				<p> {{prod.name}}   </p>
+				<p> {{prod.price  | currency : "EUR"}} </p>
 				<a [routerLink]="'/products/item/' + prod.id"> Acquista </a>
 
 			</div>

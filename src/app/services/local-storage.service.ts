@@ -46,7 +46,7 @@ export class LocalStorageService {
     let prodCart : prodotto[] = this.getAllProducts();
 
     for( let p of prodCart){  
-      subT +=  Math.floor(p.prezzo * 100) / 100;  // Arrotonda a 2° cifra decimale
+      subT +=  Math.floor(p.price * 100) / 100;   // Arrotonda a 2° cifra decimale
       sped += 5;                                  // Ogni prod aggiunge 5 di spedizione
     }     
 

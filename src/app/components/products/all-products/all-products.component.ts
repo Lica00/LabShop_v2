@@ -12,8 +12,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AllProductsComponent {
 
-  listaCategorie : string[] = ["Azione", "Avventura", "Sopravvivenza"];
-  listaPiattaforme : string[] = ["Pc", "Playstation", "Xbox", "Wii", "Nintendo switch"];
+  listaCategorie : string[] = ["Avventura", "Azione", "Sopravvivenza"];
+  listaPiattaforme : string[] = ["Pc", "Playstation", "Xbox"];
 
   request : RequestHttpService = inject(RequestHttpService);
   formBuilder : FormBuilder= inject(FormBuilder);

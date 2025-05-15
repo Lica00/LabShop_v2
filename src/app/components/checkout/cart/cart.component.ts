@@ -16,7 +16,7 @@ export class CartComponent {
       // Chiede dati 3 prodotti casuali 
       let nRandom : number = Math.floor(Math.random() * 41 );
     
-      this.request.rangeProdotti( nRandom, nRandom + 3 ).subscribe(
+      this.request.rangeProdotti( nRandom, nRandom + 2 ).subscribe(
         { next : (dati) => {  this.arrProducts = dati; } }
       )
   }
